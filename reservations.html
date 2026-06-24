@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations — La Poutine · Vieux-Québec</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+  ================================================================
+  GOOGLE ANALYTICS — PASTE YOUR GA4 SNIPPET HERE (all 4 pages)
+  ================================================================
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  ================================================================
+  -->
+</head>
+<body>
+
+  <!-- RESEARCH DISCLOSURE (required by assignment) -->
+  <div class="disclosure-bar">
+    <strong>Research Notice:</strong> This site is a university course project (MSE543) and collects anonymized analytics data (page visits, clicks) to study user experience.
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">La Poutine <em>· Depuis 1987</em></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="location.html">Location &amp; Hours</a>
+        <a href="reservations.html" class="active">Reservations</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">Réservez une Table</span>
+    <h1>Reservations</h1>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:720px;">
+      <p class="form-intro">
+        Book your table at La Poutine in Vieux-Québec. For parties larger than 8 or catering inquiries,
+        please call us at <a href="tel:+14185552847">(418) 555-2847</a>.
+      </p>
+
+      <!-- RESERVATION FORM -->
+      <form id="reservation-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Marie Tremblay">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="marie@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(418) 555-0000">
+          </div>
+          <div class="form-group">
+            <label for="guests">Party Size</label>
+            <select id="guests" name="guests" required>
+              <option value="" disabled selected>Select…</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+              <option value="7">7 guests</option>
+              <option value="8">8 guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <select id="time" name="time" required>
+              <option value="" disabled selected>Select…</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>5:00 PM</option>
+              <option>6:00 PM</option>
+              <option>7:00 PM</option>
+              <option>8:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="notes">Special Requests (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Allergies, high chair, celebrating an occasion…"></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-rouge">Confirm Reservation</button>
+        </div>
+      </form>
+
+      <!-- SUCCESS MESSAGE (shown by script.js after submit) -->
+      <div class="success-msg" id="success-msg">
+        <h3>Merci! Your table is reserved.</h3>
+        <p>A confirmation has been sent to your email. We can't wait to welcome you to La Poutine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">La Poutine</a>
+          <p>Handcrafted poutine, made with Québécois tradition and pride. Serving Vieux-Québec since 1987.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location &amp; Hours</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon–Thu: 11am–9pm</p>
+          <p>Fri–Sat: 11am–11pm</p>
+          <p>Sun: 11am–8pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>150 Rue Saint-Louis<br>Vieux-Québec, QC G1R 3Z5</p>
+          <p><a href="tel:+14185552847">(418) 555-2847</a></p>
+          <p><a href="mailto:info@lapoutine.ca">info@lapoutine.ca</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 La Poutine · Vieux-Québec · All rights reserved</p>
+        <p class="footer-disclaimer" id="disclaimer">⚠ This website was created as part of a university course project (MSE543). It collects anonymized analytics data — including page visits and click events — to study user experience. No personal data is stored without consent.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

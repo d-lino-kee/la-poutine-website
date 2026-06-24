@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location &amp; Hours — La Poutine · Vieux-Québec</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+  ================================================================
+  GOOGLE ANALYTICS — PASTE YOUR GA4 SNIPPET HERE (all 4 pages)
+  ================================================================
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  ================================================================
+  -->
+</head>
+<body>
+
+  <!-- RESEARCH DISCLOSURE (required by assignment) -->
+  <div class="disclosure-bar">
+    <strong>Research Notice:</strong> This site is a university course project (MSE543) and collects anonymized analytics data (page visits, clicks) to study user experience.
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">La Poutine <em>· Depuis 1987</em></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="location.html" class="active">Location &amp; Hours</a>
+        <a href="reservations.html">Reservations</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">Nous Trouver</span>
+    <h1>Location &amp; Hours</h1>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="location-grid">
+
+        <!-- MAP -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=Rue+Saint-Louis,+Vieux-Qu%C3%A9bec,+QC&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map to La Poutine, Vieux-Québec"></iframe>
+        </div>
+
+        <!-- INFO -->
+        <div>
+          <div class="info-block">
+            <span class="info-label">Address</span>
+            <p>150 Rue Saint-Louis<br>Vieux-Québec, QC G1R 3Z5<br>Canada</p>
+            <p><a href="https://www.google.com/maps?q=Rue+Saint-Louis,+Vieux-Qu%C3%A9bec,+QC" target="_blank" rel="noopener" data-event="directions_click">Get directions →</a></p>
+          </div>
+
+          <div class="info-block">
+            <span class="info-label">Contact</span>
+            <p><a href="tel:+14185552847">(418) 555-2847</a></p>
+            <p><a href="mailto:info@lapoutine.ca">info@lapoutine.ca</a></p>
+          </div>
+
+          <div class="info-block">
+            <span class="info-label">Hours</span>
+            <table class="hours-table">
+              <tr data-day="1"><td>Monday</td><td>11am – 9pm</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>11am – 9pm</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>11am – 9pm</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>11am – 9pm</td></tr>
+              <tr data-day="5"><td>Friday</td><td>11am – 11pm</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>11am – 11pm</td></tr>
+              <tr data-day="0"><td>Sunday</td><td>11am – 8pm</td></tr>
+            </table>
+          </div>
+
+          <div class="info-block">
+            <span class="info-label">Getting Here</span>
+            <p>A 5-minute walk from the Château Frontenac. Street parking on Rue Saint-Louis; paid lots nearby on Rue D'Auteuil.</p>
+          </div>
+
+          <a href="reservations.html" class="btn btn-rouge">Reserve a Table</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">La Poutine</a>
+          <p>Handcrafted poutine, made with Québécois tradition and pride. Serving Vieux-Québec since 1987.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location &amp; Hours</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon–Thu: 11am–9pm</p>
+          <p>Fri–Sat: 11am–11pm</p>
+          <p>Sun: 11am–8pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>150 Rue Saint-Louis<br>Vieux-Québec, QC G1R 3Z5</p>
+          <p><a href="tel:+14185552847">(418) 555-2847</a></p>
+          <p><a href="mailto:info@lapoutine.ca">info@lapoutine.ca</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 La Poutine · Vieux-Québec · All rights reserved</p>
+        <p class="footer-disclaimer" id="disclaimer">⚠ This website was created as part of a university course project (MSE543). It collects anonymized analytics data — including page visits and click events — to study user experience. No personal data is stored without consent.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
