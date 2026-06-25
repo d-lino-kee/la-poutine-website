@@ -1,5 +1,7 @@
 # La Poutine — Vieux-Québec 🍟
 
+**🌐 Live site: [d-lino-kee.github.io/la-poutine-website](https://d-lino-kee.github.io/la-poutine-website/)**
+
 A small static website for a fictional Québec poutine restaurant, built as a **course project for MSE 543** (UX research / usability testing). The site is intentionally simple, usable, and instrumented so that user behaviour can be measured with Google Analytics (and, optionally, Microsoft Clarity heatmaps).
 
 > ⚠️ **Research notice:** This website was created for a university course project and collects anonymized analytics data (page visits and click events) to study user experience. A disclosure banner and footer notice appear on every page.
