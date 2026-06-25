@@ -52,6 +52,40 @@ Clarity gives you click heatmaps and session recordings — useful for the quali
 
 ---
 
+## Analytics & custom event (for the report)
+
+**Active GA4 property:** the live tag `G-SV3MWKVPN7` is installed on all four pages.
+
+### Standard metrics GA4 collects (out of the box)
+- **Page views & users** — how many people reach each page (Home, Menu, Location, Reservations).
+- **Navigation paths** — which page users come from / go to next (Reports → Engagement → Pages, and the Path exploration).
+- **Engagement / time on page** — how long users spend on each page; useful for spotting confusion or drop-off.
+- **Enhanced measurement** — scrolls and outbound clicks are auto-tracked (enabled on the data stream).
+
+### Custom event — `reservation_submitted` (the assignment's required custom element)
+Defined in `script.js`, this event fires **only when a user successfully completes the reservation task** (passes form validation and submits).
+
+| Field | Value |
+|-------|-------|
+| Event name | `reservation_submitted` |
+| Parameter `party_size` | number of guests selected |
+| Parameter `reservation_date` | chosen reservation date |
+| Parameter `reservation_time` | chosen reservation time |
+
+**Why it matters for the report:** this is a direct **task-success / conversion** signal — it lets you measure *how many users who reached the Reservations page actually completed a booking*, and segment that by party size, date, or time. Pairing the drop-off (users who reached the page but never fired the event) with user-testing observations is exactly the kind of combined "big data + small data" story the midterm asks for.
+
+**Two supporting custom events** are also tracked in `script.js`:
+- `cta_click` — clicks on primary call-to-action buttons (label captured), to see which CTAs drive navigation.
+- `directions_click` — clicks on the "Get directions" link on the Location page.
+
+### Make it a Key event (recommended)
+In GA → **Admin → Events**, once `reservation_submitted` has fired at least once, toggle **Mark as key event**. GA will then report it as a conversion, giving you a clean task-completion rate.
+
+### Verifying events fire
+Open the site, submit a reservation, and check GA → **Reports → Realtime → Event count by Event name**. Before GA is connected (or for quick local checks), every event also logs to the browser **Console** (F12).
+
+---
+
 ## 🚀 Quick GitHub Pages deploy guide
 
 The code is pushed to GitHub. To make the site **live**, turn on Pages once:
