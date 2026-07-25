@@ -307,6 +307,110 @@ nav a:hover, nav a.active {
   margin-top: 0.6rem;
 }
 
+/* ===================== MENU TOOLBAR ===================== */
+.menu-toolbar {
+  position: sticky;
+  top: 0; /* JS sets this to the header height so it stacks below the header */
+  z-index: 150;
+  background: var(--parchment-mid);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(42,29,18,0.06);
+}
+.menu-toolbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.menu-search {
+  position: relative;
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+.menu-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.menu-search input {
+  width: 100%;
+  border: 1px solid var(--parchment-mid);
+  background: var(--parchment);
+  padding: 0.6rem 1rem 0.6rem 2.4rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.menu-search input:focus { border-color: var(--gold); }
+
+.menu-filters { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.menu-chip {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.menu-chip:hover { color: var(--forest); border-color: var(--gold); }
+.menu-chip.active {
+  color: var(--parchment);
+  background: var(--forest);
+  border-color: var(--forest);
+}
+
+.menu-lang { display: flex; align-items: center; gap: 0.4rem; }
+.menu-lang-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-right: 0.2rem;
+}
+.lang-btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--warm-gray);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.42rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.lang-btn:hover { color: var(--forest); border-color: var(--gold); }
+.lang-btn.active {
+  color: var(--forest);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.menu-no-results {
+  text-align: center;
+  font-style: italic;
+  color: var(--warm-gray);
+  padding: 3rem 1rem;
+  font-size: 1.05rem;
+}
+.menu-item[hidden], .menu-section[hidden] { display: none !important; }
+
 /* ===================== MENU PAGE ===================== */
 .menu-section {
   padding: 4rem 0;
@@ -359,6 +463,41 @@ nav a:hover, nav a.active {
   display: block;
   margin-top: 0.05rem;
 }
+
+/* ---- Language modes (rebalanced labelling + one-tap toggle) ---- */
+/* Default "Both": English gets near-equal visual weight to French. */
+#menu-container.lang-both .menu-item-name-en {
+  font-size: 0.96rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--forest-mid);
+  margin-top: 0.12rem;
+}
+/* "FR": French leads, English is a quiet gloss. */
+#menu-container.lang-fr .menu-item-name-en {
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--warm-gray);
+}
+/* "EN": swap emphasis — English leads, French becomes the gloss. */
+#menu-container.lang-en .menu-item-name {
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--warm-gray);
+  order: 2;
+  margin-top: 0.12rem;
+}
+#menu-container.lang-en .menu-item-name-en {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--forest);
+  order: 1;
+}
+#menu-container.lang-en .menu-item-info { display: flex; flex-direction: column; }
+#menu-container.lang-en .menu-item-desc { order: 3; }
 .menu-item-desc { font-size: 0.86rem; color: var(--warm-gray); margin-top: 0.3rem; line-height: 1.5; }
 .menu-item-price {
   font-family: 'Cormorant Garamond', serif;
@@ -460,6 +599,72 @@ nav a:hover, nav a.active {
   margin-bottom: 0.6rem;
 }
 .success-msg p { opacity: 0.75; font-style: italic; }
+.success-check {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.6rem;
+  line-height: 50px;
+}
+.reservation-summary {
+  max-width: 360px;
+  margin: 1.8rem auto;
+  text-align: left;
+  border-top: 1px solid rgba(244,236,216,0.15);
+}
+.reservation-summary > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(244,236,216,0.12);
+}
+.reservation-summary dt {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.55);
+  align-self: center;
+}
+.reservation-summary dd {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  font-style: normal;
+}
+#new-reservation-btn { margin-top: 1rem; }
+
+/* ---- Inline validation ---- */
+.field-hint {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--warm-gray);
+}
+.field-hint a { color: var(--rouge); }
+.field-error {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--rouge);
+  min-height: 0;
+  display: none;
+}
+.form-group.has-error .field-error { display: block; }
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea { border-color: var(--rouge); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group.is-valid input,
+.form-group.is-valid select { border-color: rgba(40,64,31,0.5); }
 
 /* ===================== FOOTER ===================== */
 footer {
@@ -525,6 +730,9 @@ footer {
   .footer-disclaimer { max-width: 100%; text-align: left; }
   .footer-bottom { flex-direction: column; }
   .menu-grid { grid-template-columns: 1fr; }
+  .menu-toolbar-inner { gap: 0.7rem 1rem; }
+  .menu-search { flex-basis: 100%; }
+  .menu-lang { margin-left: auto; }
 }
 @media (max-width: 520px) {
   .header-inner { flex-wrap: wrap; justify-content: center; gap: 0; }

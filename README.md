@@ -20,7 +20,7 @@ A small static website for a fictional Québec poutine restaurant, built as a **
 Supporting files:
 
 - `style.css` — all styling (shared across pages)
-- `script.js` — form handling, today's-hours highlight, and analytics events
+- `script.js` — menu search/filter/language toggle, reservation validation, today's-hours highlight, and analytics events
 - `.nojekyll` — tells GitHub Pages to serve files as-is (no Jekyll processing)
 
 ### Three user-testing tasks
@@ -76,9 +76,24 @@ Defined in `script.js`, this event fires **only when a user successfully complet
 
 **Why it matters for the report:** this is a direct **task-success / conversion** signal — it lets you measure *how many users who reached the Reservations page actually completed a booking*, and segment that by party size, date, or time. Pairing the drop-off (users who reached the page but never fired the event) with user-testing observations is exactly the kind of combined "big data + small data" story the midterm asks for.
 
-**Two supporting custom events** are also tracked in `script.js`:
+**Supporting custom events** are also tracked in `script.js`:
 - `cta_click` — clicks on primary call-to-action buttons (label captured), to see which CTAs drive navigation.
 - `directions_click` — clicks on the "Get directions" link on the Location page.
+
+**Menu-usage events** (added for the midterm UX changes):
+
+- `menu_search` — a search term entered on the Menu page (`query`, `results` count) — reveals what dishes people look for and whether they find matches.
+- `menu_filter` — a category filter/anchor tapped (`category`).
+- `menu_language_toggle` — the FR / Both / EN label toggle (`language`).
+
+**Reservation funnel events** (added to measure drop-off, per the midterm plan):
+
+- `reservation_start` — fires once when a user first focuses any form field.
+- `reservation_field_complete` — fires the first time each field becomes valid (`field`, `fields_complete`, `total_fields`), so you can see exactly where users stall.
+- `reservation_validation_error` — fires on a failed submit (`invalid_fields`, `invalid_count`).
+- `reservation_restart` — fires when a user starts another booking from the confirmation state.
+
+Together, `reservation_start → reservation_field_complete → reservation_submitted` form a step-by-step funnel for measuring reservation drop-off in a later analysis.
 
 ### Make it a Key event (recommended)
 In GA → **Admin → Events**, once `reservation_submitted` has fired at least once, toggle **Mark as key event**. GA will then report it as a conversion, giving you a clean task-completion rate.

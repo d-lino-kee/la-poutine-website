@@ -72,14 +72,17 @@
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required placeholder="Marie Tremblay">
+            <span class="field-error" data-error-for="name"></span>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required placeholder="marie@example.com">
+            <span class="field-error" data-error-for="email"></span>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
             <input type="tel" id="phone" name="phone" required placeholder="(418) 555-0000">
+            <span class="field-error" data-error-for="phone"></span>
           </div>
           <div class="form-group">
             <label for="guests">Party Size</label>
@@ -94,23 +97,39 @@
               <option value="7">7 guests</option>
               <option value="8">8 guests</option>
             </select>
+            <span class="field-error" data-error-for="guests"></span>
           </div>
           <div class="form-group">
             <label for="date">Date</label>
             <input type="date" id="date" name="date" required>
+            <span class="field-error" data-error-for="date"></span>
           </div>
           <div class="form-group">
             <label for="time">Time</label>
-            <select id="time" name="time" required>
+            <select id="time" name="time" required aria-describedby="time-hint" aria-invalid="false">
               <option value="" disabled selected>Select…</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>1:00 PM</option>
-              <option>5:00 PM</option>
-              <option>6:00 PM</option>
-              <option>7:00 PM</option>
-              <option>8:00 PM</option>
+              <optgroup label="Lunch service (11:00 AM – 2:30 PM)">
+                <option>11:00 AM</option>
+                <option>11:30 AM</option>
+                <option>12:00 PM</option>
+                <option>12:30 PM</option>
+                <option>1:00 PM</option>
+                <option>1:30 PM</option>
+                <option>2:00 PM</option>
+              </optgroup>
+              <optgroup label="Dinner service (5:00 PM – 8:30 PM)">
+                <option>5:00 PM</option>
+                <option>5:30 PM</option>
+                <option>6:00 PM</option>
+                <option>6:30 PM</option>
+                <option>7:00 PM</option>
+                <option>7:30 PM</option>
+                <option>8:00 PM</option>
+                <option>8:30 PM</option>
+              </optgroup>
             </select>
+            <span class="field-hint" id="time-hint">Last dinner seating varies by day — see <a href="location.html">hours</a>.</span>
+            <span class="field-error" data-error-for="time"></span>
           </div>
           <div class="form-group full">
             <label for="notes">Special Requests (optional)</label>
@@ -123,10 +142,18 @@
         </div>
       </form>
 
-      <!-- SUCCESS MESSAGE (shown by script.js after submit) -->
-      <div class="success-msg" id="success-msg">
+      <!-- SUCCESS / CONFIRMATION STATE (shown by script.js after submit) -->
+      <div class="success-msg" id="success-msg" role="status" aria-live="polite">
+        <div class="success-check" aria-hidden="true">✓</div>
         <h3>Merci! Your table is reserved.</h3>
         <p>A confirmation has been sent to your email. We can't wait to welcome you to La Poutine.</p>
+        <dl class="reservation-summary" id="reservation-summary">
+          <div><dt>Name</dt><dd data-summary="name"></dd></div>
+          <div><dt>Party</dt><dd data-summary="guests"></dd></div>
+          <div><dt>Date</dt><dd data-summary="date"></dd></div>
+          <div><dt>Time</dt><dd data-summary="time"></dd></div>
+        </dl>
+        <button type="button" class="btn btn-outline-light" id="new-reservation-btn">Make Another Reservation</button>
       </div>
     </div>
   </section>

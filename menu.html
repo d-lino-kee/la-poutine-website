@@ -59,10 +59,43 @@
     <h1>Menu</h1>
   </section>
 
-  <div class="container">
+  <!-- MENU TOOLBAR (sticky): search · category anchors/filters · language toggle -->
+  <div class="menu-toolbar" id="menu-toolbar">
+    <div class="menu-toolbar-inner">
+
+      <div class="menu-search">
+        <span class="menu-search-icon" aria-hidden="true">⌕</span>
+        <input type="search" id="menu-search-input" placeholder="Search the menu…"
+               aria-label="Search the menu" autocomplete="off">
+      </div>
+
+      <div class="menu-filters" role="group" aria-label="Filter menu by category">
+        <button type="button" class="menu-chip active" data-filter="all">All</button>
+        <button type="button" class="menu-chip" data-filter="signature">Signature</button>
+        <button type="button" class="menu-chip" data-filter="vegetarian">Vegetarian</button>
+        <button type="button" class="menu-chip" data-filter="starters">Starters</button>
+        <button type="button" class="menu-chip" data-filter="desserts">Desserts</button>
+      </div>
+
+      <div class="menu-lang" role="group" aria-label="Menu language">
+        <span class="menu-lang-label">Language</span>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn active" data-lang="both">Both</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container lang-both" id="menu-container">
+
+    <!-- No-results message (shown by script.js when search/filter matches nothing) -->
+    <p class="menu-no-results" id="menu-no-results" hidden>
+      No matching items. Try a different search term or clear your filters.
+    </p>
 
     <!-- SIGNATURE POUTINES -->
-    <section class="menu-section">
+    <section class="menu-section" id="signature" data-category="signature">
       <h2 class="menu-section-title">Poutines Signature</h2>
       <p class="menu-section-subtitle">Our classics — assembled à la minute with fresh Warwick cheese curds.</p>
       <div class="menu-grid">
@@ -102,7 +135,7 @@
     </section>
 
     <!-- VEGETARIAN -->
-    <section class="menu-section">
+    <section class="menu-section" id="vegetarian" data-category="vegetarian">
       <h2 class="menu-section-title">Végétarienne</h2>
       <p class="menu-section-subtitle">Meat-free, never compromise on the squeak.</p>
       <div class="menu-grid">
@@ -126,7 +159,7 @@
     </section>
 
     <!-- SIDES & STARTERS -->
-    <section class="menu-section">
+    <section class="menu-section" id="starters" data-category="starters">
       <h2 class="menu-section-title">Pour Commencer</h2>
       <p class="menu-section-subtitle">Sides &amp; starters to share.</p>
       <div class="menu-grid">
@@ -158,7 +191,7 @@
     </section>
 
     <!-- DESSERTS & DRINKS -->
-    <section class="menu-section">
+    <section class="menu-section" id="desserts" data-category="desserts">
       <h2 class="menu-section-title">Desserts &amp; Boissons</h2>
       <p class="menu-section-subtitle">A sweet Québécois finish.</p>
       <div class="menu-grid">
